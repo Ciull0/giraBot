@@ -7,11 +7,19 @@ arduino = serial.Serial('COM3',9600)
 
 oldAngolo = 1
 angolo = 1
-url = "https://api.jsonbin.io/b/5ffc4163f98f6e35d5fb17a8"
+url = "https://raw.githubusercontent.com/Ciull0/giraBot/master/status.json"
 http = urllib3.PoolManager()
 while 1:
-    richiesta = http.request('GET',url)
-    numero = json.loads(richiesta.data)['angolo']
+    richiesta = http.request('GET',
+                             url,
+                             headers={
+                                 'Cache-Control': 'no-cache',
+                                 'Pragma': 'no-cache',
+                                 'Expires': 'Thu, 01 Jan 1970 00:00:00 GMT'
+                                 }
+                            )
+    numero = 90
+    print(json.loads(richiesta.data))
     print(numero)
     if(numero>0 and numero<150):
         angolo = str(numero)
