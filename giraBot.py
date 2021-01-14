@@ -13,9 +13,9 @@ while 1:
     richiesta = http.request('GET',
                              url,
                              headers={
-                                 'Cache-Control': 'no-cache',
-                                 'Pragma': 'no-cache',
-                                 'Expires': 'Thu, 01 Jan 1970 00:00:00 GMT'
+                                 'cache-control': 'no-cache',
+                                 'pragma': 'no-cache',
+                                 'expires': 'Thu, 01 Jan 1970 00:00:00 GMT'
                                  }
                             )
     numero = 90
